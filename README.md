@@ -1,4 +1,4 @@
-#Simplified verison of the Module for easier and quicker installation
+# Simplified verison of the Module for easier and quicker installation
 
 Simply run the following command in your terminal:
 ```bash
