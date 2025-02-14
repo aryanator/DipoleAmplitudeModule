@@ -8,6 +8,7 @@ setup(
         'numpy',
         'scikit-learn==1.2.2',  # Specify the exact version
         'boto3',
+        'awscli',
     ],
     description='A package for making predictions for Dipole Amplitude using a pre-trained Random Forest model',
     author='Aryan Patil',
