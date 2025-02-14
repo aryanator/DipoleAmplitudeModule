@@ -8,10 +8,10 @@ import tempfile
 class RandomForestModel:
     def __init__(self):
         # Hardcoded S3 paths
-        self.s3_bucket = 'your-s3-bucket'
-        self.s3_key_model = 'path/to/your/model/rf_model_33.pkl'
-        self.s3_key_scaler = 'path/to/your/scaler/scaler_33.pkl'
-
+        self.s3_bucket = 'dipoleamplitudemodels'
+        self.s3_key_model = 'V2/rf_v2_1.pkl'
+        self.s3_key_scaler = 'V2/scaler_v2_1.pkl'
+        
         # Initialize S3 client
         self.s3_client = boto3.client('s3')
 
