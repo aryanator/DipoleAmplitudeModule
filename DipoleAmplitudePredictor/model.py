@@ -24,20 +24,25 @@ class RandomForestModel:
         self.scaler = self.load_pickle(self.scaler_path)
 
     def download_file_from_s3(self, s3_key, local_filename):
-        # Use a temporary directory for downloading
-        temp_dir = tempfile.gettempdir()  # Get the system's temp directory
-        local_path = os.path.join(temp_dir, local_filename)
-        
-        # Check if the file already exists
-        if not os.path.exists(local_path):
-            print(f"Downloading {local_filename} from S3...")
-            # Download the file from S3 to the temp directory if not already downloaded
-            self.s3_client.download_file(self.s3_bucket, s3_key, local_path)
+    # Use a temporary directory for downloading
+    temp_dir = tempfile.gettempdir()  # Get the system's temp directory
+    local_path = os.path.join(temp_dir, local_filename)
+    
+    # Check if the file already exists
+    if not os.path.exists(local_path):
+        print(f"Downloading {local_filename} from S3...")
+        # Use AWS CLI to download the file without signing the request
+        command = f"aws s3 cp s3://{self.s3_bucket}/{s3_key} {local_path} --no-sign-request"
+        try:
+            subprocess.run(command, shell=True, check=True)
             print(f"Downloaded {local_filename} from S3.")
-        else:
-            print(f"{local_filename} already exists in temp directory.")
-        
-        return local_path
+        except subprocess.CalledProcessError as e:
+            print(f"Error downloading file: {e}")
+            return None
+    else:
+        print(f"{local_filename} already exists in temp directory.")
+    
+    return local_path
 
     def load_pickle(self, path):
         with gzip.open(path, 'rb') as file:
