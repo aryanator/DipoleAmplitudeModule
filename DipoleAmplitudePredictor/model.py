@@ -4,6 +4,8 @@ import numpy as np
 import os
 import boto3
 import tempfile
+import subprocess
+
 
 class RandomForestModel:
     def __init__(self):
