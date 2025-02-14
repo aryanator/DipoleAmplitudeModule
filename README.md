@@ -16,9 +16,9 @@ pip install git+https://github.com/aryanator/Dipole.git
 Once installed, you can initialize and use the model as follows:  
 
 ```python
-from dipole import Model  # Adjust import based on your package structure
+from DipoleAmplitudePredictor import RandomForestModel #import the trained model
 
-model = Model()  # Example usage
+rf_model = RandomForestModel()
 ```  
 
 ## Features  
