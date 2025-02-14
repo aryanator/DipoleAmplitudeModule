@@ -1,5 +1,4 @@
 
-```md
 # Dipole  
 
 A simplified module for easy and quick installation.  
