@@ -1,4 +1,3 @@
-Here’s a well-structured `README.md` file for your GitHub repository:  
 
 ```md
 # Dipole  
