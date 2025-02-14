@@ -19,7 +19,10 @@ Once installed, you can initialize and use the model as follows:
 from DipoleAmplitudePredictor import RandomForestModel #import the trained model
 
 rf_model = RandomForestModel()
-```  
+```
+
+Refer to the file named OldVersion_readme.txt to understand the requirements of passing input to the model
+Also, can refer to run.py to see a sample usage of the module
 
 ## Features  
 
