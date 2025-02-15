@@ -37,6 +37,3 @@ Feel free to open issues or submit pull requests if you have improvements or fea
 
 
 ⭐ Star this repo if you find it useful! 🚀  
-```  
-
-This improves readability, provides structure, and makes it GitHub-friendly. Let me know if you want additional sections! 😊
