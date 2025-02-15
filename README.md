@@ -8,7 +8,7 @@ A simplified module for easy and quick installation.
 Install the module using the following command:  
 
 ```bash
-pip install git+https://github.com/aryanator/Dipole.git
+pip install git+https://github.com/aryanator/DipoleAmplitudeModule.git
 ```  
 
 ## Usage  
