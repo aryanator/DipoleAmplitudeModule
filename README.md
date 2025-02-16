@@ -29,6 +29,12 @@ Further, you can also run a webapp by using the follwing command
 streamlit run streamlit_app.py
 ```
 
+Files:
+1. setup.py- Required to setup the module
+2. streamlit_app.py- Run the webapp
+3. X_new.pkl- pickle file of a sample input numpy arrays for the webpage or the application
+4. predictions.pkl- predictions made on X_new
+
 ## Features  
 
 - 📦 Easy installation with a single command  
