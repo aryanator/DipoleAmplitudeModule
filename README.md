@@ -24,6 +24,11 @@ rf_model = RandomForestModel()
 Refer to the file named OldVersion_readme.txt to understand the requirements of passing input to the model
 Also, can refer to run.py to see a sample usage of the module
 
+Further, you can also run a webapp by using the follwing command
+```bash
+streamlit run streamlit_app.py
+```
+
 ## Features  
 
 - 📦 Easy installation with a single command  
