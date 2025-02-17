@@ -1,7 +1,7 @@
 
 # Dipole  
 
-A simplified module for easy and quick installation. No need to download the repository, directly clone and use it as follows-
+A simplified module for easy and quick installation. No need to download the repository, directly install the module and use it as follows-
 
 ## Installation  
 
