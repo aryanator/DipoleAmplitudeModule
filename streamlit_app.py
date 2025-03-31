@@ -63,5 +63,15 @@ if uploaded_file:
             ax.set_ylabel("Amplitude")
             st.pyplot(fig)
             
+            # Download predictions
+            pred_bytes = BytesIO()
+            pickle.dump(prediction, pred_bytes)
+            st.download_button(
+                label="Download Predictions (.pkl)",
+                data=pred_bytes,
+                file_name="dipole_predictions.pkl",
+                mime="application/octet-stream"
+            )
+            
     except Exception as e:
         st.error(f"Error: {str(e)}")
