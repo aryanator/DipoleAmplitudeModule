@@ -1,50 +1,68 @@
+# Dipole Amplitude Predictor
 
-# Dipole  
-
-A simplified module for easy and quick installation. No need to download the repository, directly install the module and use it as follows-
-
-## Installation  
-
-Install the module using the following command:  
-
+## 📦 Installation
 ```bash
+# PyPI (stable release)
+pip install DipoleAmplitudePredictor==0.2.1
+
+# GitHub (latest development version)
 pip install git+https://github.com/aryanator/DipoleAmplitudeModule.git
-```  
+```
 
-## Usage  
+## 🔧 Data Requirements
+### For Python Module Usage (Direct)
+- **Strictly 103 features** in this order:
+  ```python
+  [101 physical parameters] + [c2_value] + [x_bj_target]
+  ```
+  - Shape: `(N, 103)` where N = number of samples
+  - Example:
+    ```python
+    import numpy as np
+    X = np.hstack([physical_params, [[2.5, 0.001]]])  # Append c2 and x_bj
+    ```
 
-Once installed, you can initialize and use the model as follows:  
+### For Web App Usage
+- **Accepts either format**:
+  - `(N, 101)`: Physical parameters only *(app auto-appends your UI inputs for c2/x_bj)*
+  - `(N, 103)`: Full features (same as Python API)
 
+## 🐍 Python Module Usage
 ```python
-from DipoleAmplitudePredictor import RandomForestModel #import the trained model
+from DipoleAmplitudePredictor import RandomForestModel
+import numpy as np
 
-rf_model = RandomForestModel()
+# Sample 103-feature input
+physical_params = np.random.rand(1, 101)  # Your 101 core features
+c2, x_bj = 2.5, 1e-3
+X = np.hstack([physical_params, [[c2, x_bj]]])  # -> (1, 103)
+
+# Predict
+model = RandomForestModel()
+predictions = model.predict(X)  # Returns (N, len_r_grid) array
+r_grid = model.Rgrid()  # Corresponding radial grid points
 ```
 
-Refer to the file named OldVersion_readme.txt to understand the requirements of passing input to the model
-Also, can refer to run.py to see a sample usage of the module
+## 🌐 Web App Guide
+🔗 Live Demo: [https://dipole-amplitude-prediction.streamlit.app/](https://dipole-amplitude-prediction.streamlit.app/)
 
-Further, you can also run a webapp by using the follwing command
-```bash
-streamlit run streamlit_app.py
-```
+### How to Use:
+1. **Upload** `.pkl` file containing:
+   - *(Option 1)*: `(N, 101)` array (physical params only)
+   - *(Option 2)*: `(N, 103)` array (full features)
+2. **Manually input** `c2_value` and `x_bj_target` if using 101-feature input
+3. **Click Predict** to:
+   - Get numerical predictions
+   - Visualize log-scale amplitude vs. radial distance
+   - Download results as `.pkl`
 
-Files:
-1. setup.py- Required to setup the module
-2. streamlit_app.py- Run the webapp
-3. X_new.pkl- pickle file of a sample input numpy arrays for the webpage or the application
-4. predictions.pkl- predictions made on X_new
+### Sample Files:
+- [X_new_101.pkl](sample_link): 101-feature example
+- [X_new_103.pkl](sample_link): Complete 103-feature example
 
-## Features  
+## 🚀 Key Features
+- **Smart Input Handling**: Web app auto-completes partial (101-feature) inputs
+- **Physics-Ready**: Maintains strict 103-feature requirement for Python API
+- **Validation**: Both interfaces check input shapes rigorously
 
-- 📦 Easy installation with a single command  
-- ⚡ Quick setup and initialization  
-- 🛠️ Ready-to-use model for your applications  
-
-## Contributing  
-
-Feel free to open issues or submit pull requests if you have improvements or feature requests.  
-
-
-
-⭐ Star this repo if you find it useful! 🚀  
+---
