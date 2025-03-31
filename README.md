@@ -57,8 +57,7 @@ r_grid = model.Rgrid()  # Corresponding radial grid points
    - Download results as `.pkl`
 
 ### Sample Files:
-- [X_new_101.pkl](sample_link): 101-feature example
-- [X_new_103.pkl](sample_link): Complete 103-feature example
+- [X_new_103.pkl](https://github.com/aryanator/DipoleAmplitudeModule/blob/main/X_new.pkl): Complete 103-feature example
 
 ## 🚀 Key Features
 - **Smart Input Handling**: Web app auto-completes partial (101-feature) inputs
